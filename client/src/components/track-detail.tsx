@@ -19,6 +19,7 @@ import MarkDown from './md-content';
  * It provides access to the first module of the track.
  */
 const TrackDetail: React.FC<{ track: any }> = ({ track }) => {
+  if (!track) return null;
   const {
     title,
     description,

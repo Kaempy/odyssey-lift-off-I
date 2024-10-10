@@ -8,7 +8,7 @@ import TrackCard from '../containers/track-card';
  * We display a grid of tracks fetched with useQuery with the TRACKS query
  */
 const TRACKS = gql(`
-  query TracksForHomeQuery {
+  query Track {
     tracksForHome {
       id
       title
