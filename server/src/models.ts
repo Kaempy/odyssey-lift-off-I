@@ -5,8 +5,19 @@ type TrackModel = {
   thumbnail: string;
   length: number;
   modulesCount: number;
+  description: string;
+  numberOfViews: number;
 };
 
 type AuthorModel = { id: string; name: string; photo: string };
 
-export type { AuthorModel, TrackModel };
+/**
+ * Model Types
+ */
+type ModuleModel = {
+  id: string;
+  title: string;
+  length: number;
+};
+
+export type { AuthorModel, ModuleModel, TrackModel };

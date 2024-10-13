@@ -10,6 +10,14 @@ const typeDefs = gql`
     thumbnail: String
     length: Int
     modulesCount: Int
+    description: String
+    numberOfViews: Int
+    modules: [Module!]!
+  }
+  type Module {
+    id: ID!
+    title: String!
+    length: Int
   }
   "type definition for Track"
   type Author {
@@ -21,6 +29,7 @@ const typeDefs = gql`
   type Query {
     "Get all tracks for home page"
     tracksForHome: [Track!]!
+    track(id: ID!): Track!
   }
 `;
 export { typeDefs };

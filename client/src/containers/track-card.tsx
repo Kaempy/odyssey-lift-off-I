@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Track } from '../__generated__/graphql';
 import { colors, mq } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
@@ -9,10 +10,13 @@ import { humanReadableTimeFromSeconds } from '../utils/helpers';
  * for each track populating the tracks grid homepage.
  */
 const TrackCard: React.FC<{ track: Track }> = ({ track }) => {
-  const { title, thumbnail, author, length, modulesCount } = track;
-
+  const { title, thumbnail, author, length, modulesCount, id } = track;
+  const navigate = useNavigate();
+  const navigateToTrack = () => {
+    navigate(`/track/${id}`);
+  };
   return (
-    <CardContainer>
+    <CardContainer onClick={navigateToTrack}>
       <CardContent>
         <CardImageContainer>
           <CardImage src={thumbnail || ''} alt={title} />

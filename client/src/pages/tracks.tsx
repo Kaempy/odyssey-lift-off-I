@@ -1,6 +1,5 @@
-import { useQuery } from '@apollo/client';
-import { gql } from '../__generated__';
-import { TrackQuery } from '../__generated__/graphql';
+import { gql, useQuery } from '@apollo/client';
+import { TracksQuery } from '../__generated__/graphql';
 import { Layout, QueryResult } from '../components';
 import TrackCard from '../containers/track-card';
 
@@ -9,7 +8,7 @@ import TrackCard from '../containers/track-card';
  * We display a grid of tracks fetched with useQuery with the TRACKS query
  */
 const TRACKS = gql(`
-  query Track {
+  query getTracks {
     tracksForHome {
       id
       title
@@ -25,7 +24,7 @@ const TRACKS = gql(`
   }
 `);
 const Tracks = () => {
-  const { data, loading, error } = useQuery<TrackQuery>(TRACKS);
+  const { data, loading, error } = useQuery<TracksQuery>(TRACKS);
   return (
     <Layout grid>
       <QueryResult data={data} loading={loading} error={error}>
